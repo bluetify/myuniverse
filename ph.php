@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space - Purple Haze</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Standard Favicon Link -->
+  <link rel="icon" type="image/x-icon" href="{{ asset('dist/images/space/logo_as.jpg')}}">
+
+  <style>
+    body {
+      background-color: #f0ede6;
+      font-family: 'Playfair Display', Georgia, serif;
+      color: #2b2b2b;
+      padding: 30px 0;
+    }
+
+    /* Container Majalah */
+    .magazine-page {
+      background-color: #f0f2f5;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px 60px 30px 60px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    /* Header */
+    .title-main {
+      font-size: 2.3rem;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      color: #1a1a1a;
+    }
+
+    .sub-quote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: #555;
+      border-bottom: 1px solid #c5c2ba;
+      padding-bottom: 8px;
+    }
+
+    .level-badge {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 15px;
+      margin-bottom: 25px;
+    }
+
+    /* Hero Image Container */
+    .hero-container {
+      position: relative;
+      margin-bottom: 35px;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      width: 100%;
+      /* height: 100%; */
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Watermark Vertikal "englorf" */
+    .watermark-vertical {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      transform-origin: center right;
+      font-family: 'Playfair Display', serif;
+      font-size: 5.5rem;
+      color: rgba(215, 210, 200, 0.45);
+      letter-spacing: 2px;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Typografi Artikel */
+    .article-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: justify;
+      color: #2c2c2c;
+    }
+
+    /* Dropcap (Huruf H Besar) */
+    .dropcap {
+      float: left;
+      font-size: 4.8rem;
+      line-height: 0.8;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-bottom: 0;
+      font-family: 'Playfair Display', serif;
+      color: #1a1a1a;
+    }
+
+    /* Side Box (Quote Kanan) */
+    .quote-box {
+      background-color: #eae5db;
+      padding: 30px 20px;
+      /* height: 100%; */
+    }
+
+    .quote-mark {
+      font-size: 2.5rem;
+      line-height: 1;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .quote-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      line-height: 1.6;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Key Words Section */
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    .keywords-table {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.88rem;
+      width: 100%;
+    }
+
+    .keywords-table td {
+      padding-bottom: 8px;
+      vertical-align: top;
+    }
+
+    .keywords-table td.word {
+      font-weight: 600;
+      width: 35%;
+    }
+
+    .keywords-table td.def {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    /* Discussion Questions */
+    .discussion-box {
+      border-left: 1px solid #c5c2ba;
+      padding-left: 20px;
+    }
+
+    .discussion-list {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      color: #333;
+      padding-left: 0;
+      list-style: none;
+      line-height: 1.5;
+    }
+
+    .discussion-list li {
+      margin-bottom: 12px;
+    }
+
+    /* Footer */
+    .footer-line {
+      border-top: 1px solid #c5c2ba;
+      margin-top: 30px;
+      padding-top: 12px;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .page-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="magazine-page">
+    
+    <!-- Header Section -->
+    <header class="row align-items-start mb-2">
+      <div class="col-sm-12">
+        <h1 class="title-main"><i>Purple Haze</i> di Langit Bumi Mengingatkan pada Lagu Legendaris Jimi Hendrix</h1>
+      </div>
+      <!-- <div class="col-sm-4 text-end pt-2">
+        <div class="sub-quote">
+          SMALL CHOICES,<br>BIG HAPPINESS.
+        </div>
+      </div> -->
+    </header>
+
+    <div class="level-badge">SPACE</div>
+
+    <!-- Hero Image Area -->
+    <div class="hero-container">
+      <!-- Gambar Lanskap Orang Tersenyum -->
+      <img src="{{ asset('dist/images/space/purplehaze.jpg') }}" alt="Purple Haze" class="hero-img">
+      <!-- Watermark Vertikal -->
+      <!-- <div class="watermark-vertical">englorf</div> -->
+    </div>
+
+    <!-- Main Grid Content -->
+    <div class="row g-4">
+      
+      <!-- Kolom 1 Teks Artikel -->
+      <div class="col-md-4 article-text">
+        <p>
+          <span class="dropcap">S</span>alah satu inspirasi di balik lagu ikonis Jimi Hendrix, Purple Haze, yang dirilis pada tahun 1967, konon berasal dari sebuah novel fiksi ilmiah berjudul Night of Light. Novel tersebut mengisahkan sebuah planet jauh yang berada dalam sistem bintang ganda (binary star system).
+        </p>
+        <p>
+          Menurut cerita dalam novel tersebut, setiap tujuh tahun sekali, kedua bintang menyelimuti planet itu dengan pancaran cahaya ungu yang aneh. Cahaya tersebut memiliki kekuatan untuk mengubah realitas fisik secara mendalam dan dengan cara yang tidak terduga. Sebagai contoh, atmosfer yang bercahaya ungu itu mampu mengubah sebagian manusia menjadi pohon dan menghidupkan patung-patung yang sebelumnya tak bernyawa.
+        </p>
+        <p>
+          Karena itu, terasa begitu tepat ketika seorang astronaut di Stasiun Luar Angkasa Internasional (International Space Station/ISS) mengingat lagu legendaris tersebut setelah menyaksikan aurora menerangi atmosfer Bumi dengan paduan warna hijau, merah, dan ungu yang memesona.
+        </p>
+        <p>
+            Astronaut NASA, Jessica Meir, mengunggah foto fenomena tersebut pada 8 September. Ia menuliskan bahwa Jimi Hendrix pasti akan "bersukacita" melihat warna ungu yang begitu cemerlang itu.
+        </p>
+        <p>
+            Pemandangan tersebut, tambahnya, "membuat saya ingin mencium langit" (kiss the sky), sebuah ungkapan yang merujuk pada lirik lagu Hendrix.
+        </p>
+        <p>
+          Foto di atas merupakan salah satu dari sekian banyak gambar yang diambil para astronaut pada 7 September 2026, ketika mereka mengorbit Bumi dan menyaksikan atmosfer yang seolah bergetar oleh warna-warni cahaya. Saat foto tersebut diambil, Stasiun Luar Angkasa Internasional berada pada ketinggian sekitar 255 mil (411 kilometer) di atas wilayah Kirgizstan.
+        </p>
+        <p>
+          Dengan menggabungkan beberapa foto, para astronaut juga menghasilkan rangkaian gambar menggunakan teknik eksposur panjang (long exposure). Dalam hasilnya, cahaya hijau aurora berpadu dengan jejak bintang, cahaya Bulan, satelit yang melintas, serta gemerlap lampu kota. Semua sumber cahaya tersebut menyatu dalam komposisi yang begitu memukau.
+          Kata aurora berasal dari bahasa Latin yang berarti "fajar". Nama ini juga merupakan sebutan bagi dewi fajar dalam mitologi Romawi.
+        </p>
+      </div>
+
+      <!-- Kolom 2 Teks Artikel & Key Words -->
+      <div class="col-md-4 article-text border-end-md pe-md-3">
+
+        <p>
+            Kata aurora berasal dari bahasa Latin yang berarti "fajar". Nama ini juga merupakan sebutan bagi dewi fajar dalam mitologi Romawi.
+            Penggunaan istilah aurora untuk menyebut fenomena cahaya di atmosfer kemungkinan berawal dari masyarakat Eropa yang tinggal jauh dari Lingkar Arktik. Mereka mungkin pernah melihat aurora sebagai cahaya kemerahan yang samar di langit utara. Penampakan tersebut menyerupai semburat merah di ufuk timur ketika fajar mulai menyingsing.
+        </p>
+        <p>
+            Fenomena warna-warni ini biasanya bermula ketika Matahari mengirimkan partikel bermuatan listrik menuju Bumi melalui suar Matahari (solar flare), lontaran massa korona (coronal mass ejection atau CME), maupun angin Matahari yang aktif (solar wind).
+            Partikel-partikel tersebut berinteraksi dengan magnetosfer, yaitu gelembung medan magnet tak kasatmata yang mengelilingi Bumi dan bentuknya menyerupai komet. Interaksi ini menyebabkan magnetosfer mengalami tekanan dan perubahan konfigurasi medan magnet.
+        </p>
+        <p>
+            Dalam proses tersebut, sebagian partikel yang berada di dalam medan magnet kemudian diarahkan menuju atmosfer bagian atas Bumi. Di sana, partikel-partikel tersebut mengeksitasi atom dan molekul nitrogen serta oksigen, sehingga keduanya melepaskan energi dalam bentuk foton atau partikel cahaya.
+            Aurora yang difoto Jessica Meir muncul di tengah gangguan aktivitas Matahari yang berkaitan dengan aliran angin Matahari berkecepatan tinggi dari sebuah lubang korona (coronal hole), serta dampak sisa dari beberapa peristiwa lontaran massa korona.
+            Informasi tersebut disampaikan melalui pembaruan dari Pusat Prediksi Cuaca Antariksa NOAA (NOAA's Space Weather Prediction Center).
+        </p>
+        <p>
+            Gangguan angin Matahari tersebut berinteraksi dengan magnetosfer Bumi dan memicu badai geomagnetik ringan yang dikategorikan sebagai G1.
+            Warna-warna aurora dipengaruhi oleh jenis gas yang terlibat serta ketinggian tempat fenomena tersebut terjadi di atmosfer.
+            Atom oksigen yang mengalami eksitasi pada tingkat energi berbeda dapat menghasilkan cahaya hijau dan merah. Cahaya hijau umumnya muncul pada ketinggian sekitar 60–120 mil (100–200 kilometer), sedangkan cahaya merah muncul pada ketinggian di atas 120 mil (200 kilometer).
+        </p>
+      </div>
+
+      <!-- Kolom 3 Sidebar: Quote & Discussion Questions -->
+      <div class="col-md-4 d-flex flex-column">
+        
+        <!-- Top Quote Box -->
+        <div class="quote-box mb-4">
+          <!-- <div class="quote-mark">“</div> -->
+          <div class="quote-text">
+            <!-- HAPPINESS<br>
+            IS NOT SOMETHING<br>
+            READY MADE.<br>
+            IT COMES FROM<br>
+            YOUR OWN<br>
+            ACTIONS. -->
+            Lost in the Purple Haze. <br>
+            Where reality fades, the universe dreams in colors beyond imagination.
+          </div>
+        </div>       
+
+        <div class="article-text">
+            <p>
+                Sementara itu, molekul nitrogen yang mengalami eksitasi pada ketinggian sekitar 60–120 mil (100–200 kilometer) dapat memancarkan cahaya biru atau merah muda. Warna yang dihasilkan bergantung pada jenis dan energi partikel yang berinteraksi dengannya.
+                Terkadang, cahaya yang dipancarkan oleh berbagai gas tersebut tampak bercampur satu sama lain. Perpaduan inilah yang membuat aurora terlihat berwarna ungu, merah muda, bahkan putih.
+            </p>
+            <p>
+                Meskipun aurora dapat terjadi sepanjang tahun, para astronaut memiliki peluang lebih besar untuk menikmati pertunjukan cahaya ini pada musim semi dan musim gugur, terutama di sekitar waktu ekuinoks.
+                Hal tersebut terjadi karena geometri medan magnet Bumi terhadap angin Matahari menciptakan kondisi yang lebih mendukung perpindahan energi dari angin Matahari menuju magnetosfer. Fenomena ini dikenal sebagai efek Russell-McPherron (Russell-McPherron effect).
+            </p>
+            <p>
+                Kisah ini bukan satu-satunya contoh bagaimana musik Jimi Hendrix memberikan kesan hingga ke luar Bumi.
+                Pada tahun 2024, sejumlah karya musik Hendrix turut dibawa ke Bulan bersama wahana pendarat Odysseus.
+                Lagu Hendrix lainnya, Voodoo Chile, juga pernah masuk dalam daftar lagu untuk membangunkan para astronaut dalam misi pesawat ulang-alik STS-110. Informasi tersebut tercatat dalam laporan Divisi Sejarah NASA (NASA's History Division).
+            </p>
+
+            <div>
+                <img src="{{ asset('dist/images/space/ph_2.jpeg') }}" alt="Purple Haze" class="w-100 mt-1">
+                <a href="https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?frame=18114&mission=ISS046&roll=E&utm_source=chatgpt.com" class="" style="text-decoration: none; color: black; font-size: 9pt; margin-top: 0; padding-top: 0">eol.jsc.nasa.gov</a>
+
+                <img src="{{ asset('dist/images/space/ph_3.jpeg') }}" alt="Purple Haze" class="w-100 mt-1">
+                <a href="https://www.space.com/35047-spaceborne-don-pettit-space-book-photos/3.html?utm_source=chatgpt.com" class="" style="text-decoration: none; color: black; font-size: 9pt; margin-top: 0; padding-top: 0">space.com</a>
+
+                <img src="{{ asset('dist/images/space/ph_4.jpeg') }}" alt="Purple Haze" class="w-100 mt-1">
+                <a href="https://nicodottaphoto.com/blog/68/photographing-from-the-final-frontier-astrophotography-lesso/?utm_source=chatgpt.com" class="" style="text-decoration: none; color: black; font-size: 9pt; margin-top: 0; padding-top: 0">nicodottaphoto.com</a>
+            </div>
+
+            <div class="pt-5">
+                <a href="https://science.nasa.gov/earth/earth-observatory/purple-haze-aurora/" style="text-decoration: none; color: black">
+                    source: https://science.nasa.gov/earth/earth-observatory/purple-haze-aurora/ (NASA)
+                </a>
+            </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-line d-flex justify-content-between align-items-center">
+      <div class="brand-name ms-3">
+        <p class="text-sm tracking-wide text-neutral-600 flex items-center justify-center space-x-2">
+            <span>Archive by</span> 
+            <span class="handwriting text-xl font-bold text-blue-800 ml-1">bluetify</span>
+        </p>
+      </div>
+      <!-- <div class="page-number">07</div> -->
+    </footer>
+
+  </div>
+
+</body>
+</html>

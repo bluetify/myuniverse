@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetify - List</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brandYellow: '#eab308', // Warm golden yellow accent
+                        goldAccent: '#facc15',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e10;
+        }
+
+        /* Custom card overlay gradients for enhanced text readability */
+        .overlay-top-left {
+            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .overlay-center {
+            background: radial-gradient(circle, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.2) 100%);
+        }
+
+        .overlay-bottom-right {
+            background: linear-gradient(315deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.1) 100%);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center selection:bg-yellow-500 selection:text-black">
+
+    <!-- Container constraint mimicking a mobile showcase or sleek centered feed -->
+    <main class="w-full max-w-xl space-y-6">
+
+        <!-- CARD 1: Top Left Overlay -->
+        <article class="relative group rounded-3xl overflow-hidden shadow-2xl h-80 sm:h-96 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-yellow-500/10 border border-white/5">
+                <a href="{{ url('poison') }}" style="text-decoration: none">
+                <!-- Background Image -->
+                <img 
+                    src="{{ asset('dist/images/list/book.jpeg') }}" 
+                    alt="Palm trees and warm sun flare through structure" 
+                    class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.8] contrast-[1.1] group-hover:scale-105 transition-transform duration-700 ease-out"
+                    onerror="this.src='https://placehold.co/800x600/1a1a1a/eab308?text=Bridge+and+Sunlight'"
+                />
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 overlay-center"></div>
+
+                <!-- Content Container -->
+                <div class="relative h-full p-6 sm:p-8 flex flex-col justify-center items-center text-center">
+                    <div class="max-w-xs sm:max-w-sm">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-normal text-yellow-300 leading-tight mb-3 drop-shadow-lg">
+                            Fictional / Non Fictional
+                        </h2>
+                        <!-- <p class="text-xs sm:text-sm text-gray-200/90 font-light leading-relaxed drop-shadow">
+                            A Saturday evening stroll in the park hits different—it's that perfect blend of calm and cozy. The sun's just starting to dip, casting this soft golden glow over everything.
+                        </p> -->
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <!-- CARD 2: Middle Center Overlay -->
+        <article class="relative group rounded-3xl overflow-hidden shadow-2xl h-80 sm:h-96 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-yellow-500/10 border border-white/5">
+            <a href="#" style="text-decoration: none">
+                <!-- Background Image -->
+                <img 
+                    src="{{ asset('dist/images/list/history.jpeg') }}" 
+                    alt="Palm trees and warm sun flare through structure" 
+                    class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.8] contrast-[1.1] group-hover:scale-105 transition-transform duration-700 ease-out"
+                    onerror="this.src='https://placehold.co/800x600/1a1a1a/eab308?text=Bridge+and+Sunlight'"
+                />
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 overlay-center"></div>
+
+                <!-- Content Container -->
+                <div class="relative h-full p-6 sm:p-8 flex flex-col justify-center items-center text-center">
+                    <div class="max-w-xs sm:max-w-sm">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-normal text-yellow-300 leading-tight mb-3 drop-shadow-lg">
+                            History
+                        </h2>
+                        <!-- <p class="text-xs sm:text-sm text-gray-200/90 font-light leading-relaxed drop-shadow">
+                            A Saturday evening stroll in the park hits different—it's that perfect blend of calm and cozy. The sun's just starting to dip, casting this soft golden glow over everything.
+                        </p> -->
+                    </div>
+                </div>
+            </a>
+        </article>
+
+        <!-- CARD 3: Bottom Right Overlay -->
+        <article class="relative group rounded-3xl overflow-hidden shadow-2xl h-80 sm:h-96 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-yellow-500/10 border border-white/5">
+            <a href="{{ url('ph') }}" style="text-decoration: none">
+                <!-- Background Image -->
+                <img 
+                    src="{{ asset('dist/images/list/space.jpeg') }}" 
+                    alt="Palm trees and warm sun flare through structure" 
+                    class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.8] contrast-[1.1] group-hover:scale-105 transition-transform duration-700 ease-out"
+                    onerror="this.src='https://placehold.co/800x600/1a1a1a/eab308?text=Bridge+and+Sunlight'"
+                />
+                
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 overlay-center"></div>
+
+                <!-- Content Container -->
+                <div class="relative h-full p-6 sm:p-8 flex flex-col justify-center items-center text-center">
+                    <div class="max-w-xs sm:max-w-sm">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-normal text-yellow-300 leading-tight mb-3 drop-shadow-lg">
+                            Space
+                        </h2>
+                        <!-- <p class="text-xs sm:text-sm text-gray-200/90 font-light leading-relaxed drop-shadow">
+                            A Saturday evening stroll in the park hits different—it's that perfect blend of calm and cozy. The sun's just starting to dip, casting this soft golden glow over everything.
+                        </p> -->
+                    </div>
+                </div>
+            </a>
+        </article>
+
+    </main>
+
+</body>
+</html>
