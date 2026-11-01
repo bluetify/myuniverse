@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John F. Kennedy - Biografi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Vintage Newspaper Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Standard Favicon Link -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('dist/images/history/history.jpg')}}">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        paper: '#f3efea',
+                        paperDark: '#e8e2d8',
+                        ink: '#141414',
+                        inkMuted: '#4a4a4a',
+                        borderInk: '#222222',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Realistic vintage paper texture overlay */
+        body {
+            background-color: #ede7de;
+            background-image: radial-gradient(#d3cbbe 0.75px, transparent 0.75px), radial-gradient(#d3cbbe 0.75px, #ede7de 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: #141414;
+        }
+
+        /* Fine editorial borders */
+        .border-double-custom {
+            border-top: 3px double #141414;
+            border-bottom: 1px solid #141414;
+        }
+        
+        .border-thin {
+            border-color: #222222;
+        }
+
+        /* Highlight interaction */
+        ::selection {
+            background-color: #d4c8b5;
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-6 lg:px-12 flex justify-center items-center">
+
+    <!-- Main Newspaper Container -->
+    <main class="w-full max-w-4xl bg-paper shadow-2xl rounded-sm border border-stone-300 p-6 sm:p-10 relative overflow-hidden my-4">
+        
+        <!-- TOP HEADER METADATA -->
+        <header class="text-center select-none">
+            <div class="flex justify-between items-center text-[10px] sm:text-xs font-semibold tracking-widest uppercase border-b border-ink pb-1 font-sans text-inkMuted">
+                <span>
+                    <a href="{{ url('jfk_2') }}" style="text-decoration: none">Prev.</a>
+                </span>
+                <span class="sm:inline">
+                    Page 3
+                </span>
+                <span>
+                    <a href="{{ url('jfk_4') }}" style="text-decoration: none">Next</a>
+                </span>
+            </div>
+
+            <!-- MAIN TITLE -->
+            <a href="{{ url('jfk') }}" style="text-decoration: none">
+                <h1 class="font-serif font-black text-xs sm:text-xs md:text-xs tracking-wider text-ink my-3 uppercase leading-tight">
+                    John F. Kennedy
+                </h1>
+            </a>
+
+            <div class="border-t border-b border-ink py-1 my-2">
+                <!-- <p class="text-xs sm:text-sm font-sans tracking-widest text-inkMuted uppercase font-medium">
+                    BIOGRAFI
+                </p> -->
+            </div>
+        </header>
+
+        <!-- MAIN HEADLINE & SUBTITLE -->
+        <section class="text-center my-6 sm:my-8 px-2">
+            <h2 class="font-serif font-black text-xl sm:text-xl md:text-2xl text-ink tracking-tight uppercase leading-[0.85] mb-3">
+                Pengalaman militer dalam Perang Dunia II (1941–1945)
+            </h2>
+        </section>
+
+        <!-- 3-COLUMN EDITORIAL GRID -->
+        <div class="pt-4 border-t border-ink">
+            <!-- Article 1 -->
+            <article class="space-y-2">
+                <div>
+                    <img src="{{ asset('dist/images/history/jfk_3.jpeg') }}" alt="JFK" class="w-75 mx-auto text-center">
+                </div>
+
+                <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                    Ketika Amerika Serikat memasuki Perang Dunia II pada 1941, John bergabung dengan Angkatan Laut Amerika Serikat atau U.S. Navy.Ia bertugas di kawasan Samudra Pasifik, tempat Amerika menghadapi Jepang. 
+                </p>
+                <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                    Pada 1943, John mendapatkan komando kapal patroli torpedo bernama PT-109. Pada malam 2 Agustus 1943, kapal tersebut ditabrak oleh kapal perusak Jepang di dekat Kepulauan Solomon. Kapal PT-109 hancur dan beberapa awaknya meninggal dunia. John sendiri mengalami cedera, tetapi ia berusaha menyelamatkan anggota awak yang masih hidup. Salah satu tindakan yang paling dikenal adalah ketika ia membantu seorang awak yang terluka dengan berenang sambil menariknya menggunakan tali pengikat pelampung.
+                </p>
+                <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                    Setelah itu, John dan para awak yang selamat berusaha mencapai sebuah pulau kecil. Mereka akhirnya berhasil mendapatkan pertolongan. Atas tindakannya, John menerima Navy and Marine Corps Medal atas keberanian dan kepemimpinannya. Pengalaman tersebut membuat namanya dikenal sebagai veteran perang yang memiliki keberanian dalam situasi berbahaya. Namun, perang juga membawa tragedi bagi keluarganya. Kakaknya, Joseph Kennedy Jr., meninggal pada Agustus 1944 ketika menjalankan misi militer udara. Kematian Joseph membuat John semakin dekat dengan tanggung jawab politik yang sebelumnya diproyeksikan kepada kakaknya
+                </p>
+            </article>
+        </div>
+
+
+        <!-- INTERACTIVE BOTTOM BOOKMARK BANNER -->
+        <footer class="mt-8 border-t border-ink">
+            <div class="brand-name ms-3">
+                <p class="text-sm tracking-wide text-neutral-600 flex items-center justify-center space-x-2">
+                    <span>Archive by</span> 
+                    <span class="handwriting text-xl font-bold text-blue-800 ml-1">bluetify</span>
+                </p>
+            </div>
+        </footer>
+
+    </main>
+</body>
+</html>

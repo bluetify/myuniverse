@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John F. Kennedy - Biografi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Vintage Newspaper Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Standard Favicon Link -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('dist/images/history/history.jpg')}}">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        paper: '#f3efea',
+                        paperDark: '#e8e2d8',
+                        ink: '#141414',
+                        inkMuted: '#4a4a4a',
+                        borderInk: '#222222',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Realistic vintage paper texture overlay */
+        body {
+            background-color: #ede7de;
+            background-image: radial-gradient(#d3cbbe 0.75px, transparent 0.75px), radial-gradient(#d3cbbe 0.75px, #ede7de 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: #141414;
+        }
+
+        /* Fine editorial borders */
+        .border-double-custom {
+            border-top: 3px double #141414;
+            border-bottom: 1px solid #141414;
+        }
+        
+        .border-thin {
+            border-color: #222222;
+        }
+
+        /* Highlight interaction */
+        ::selection {
+            background-color: #d4c8b5;
+            color: #000000;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-6 lg:px-12 flex justify-center items-center">
+
+    <!-- Main Newspaper Container -->
+    <main class="w-full max-w-4xl bg-paper shadow-2xl rounded-sm border border-stone-300 p-6 sm:p-10 relative overflow-hidden my-4">
+        
+        <!-- TOP HEADER METADATA -->
+        <header class="text-center select-none">
+            <div class="flex justify-between items-center text-[10px] sm:text-xs font-semibold tracking-widest uppercase border-b border-ink pb-1 font-sans text-inkMuted">
+                <span>History</span>
+                <!-- <span class="hidden sm:inline">BIOGRAFI</span> -->
+                <span>SUNDAY, NOVEMBER 1, 2026</span>
+            </div>
+
+            <!-- Subtitle for mobile view only -->
+            <!-- <div class="sm:hidden text-[9px] font-semibold tracking-wider text-center py-1 border-b border-ink text-inkMuted">
+                INSIGHTS FOR A CALMER, CLEARER, MORE MEANINGFUL LIFE
+            </div> -->
+
+            <!-- MAIN TITLE -->
+            <h1 class="font-serif font-black text-xl sm:text-2xl md:text-3xl tracking-wider text-ink my-3 uppercase leading-tight">
+                BIOGRAFI
+            </h1>
+
+            <div class="border-t border-b border-ink py-1 my-2">
+                <!-- <p class="text-xs sm:text-sm font-sans tracking-widest text-inkMuted uppercase font-medium">
+                    BIOGRAFI
+                </p> -->
+            </div>
+        </header>
+
+        <!-- MAIN HEADLINE & SUBTITLE -->
+        <section class="text-center my-6 sm:my-8 px-2">
+            <h2 class="font-serif font-black text-xl sm:text-xl md:text-2xl text-ink tracking-tight uppercase leading-[1.3] mb-3">
+                JOHN F. KENNEDY Presiden Amerika Serikat Yang Ke-35
+            </h2>
+            <!-- <div class="flex items-center justify-center gap-3 max-w-2xl mx-auto">
+                <span class="h-[1px] w-8 sm:w-16 bg-ink block"></span>
+                <p class="font-serif italic text-sm sm:text-lg text-ink font-medium leading-snug">
+                    Why spending time alone can help you think clearly, reflect deeply, and reconnect with yourself.
+                </p>
+                <span class="h-[1px] w-8 sm:w-16 bg-ink block"></span>
+            </div> -->
+        </section>
+
+        <!-- 3-COLUMN EDITORIAL GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-4 border-t border-ink">
+            
+            <!-- LEFT COLUMN (Articles) -->
+            <aside class="md:col-span-3 flex flex-col justify-between space-y-6 md:pr-4 md:border-r border-ink/30">
+                <!-- Article 1 -->
+                <a href="{{ url('jfk_1') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Masa kecil dan latar belakang keluarga (1917–1935)
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            John Fitzgerald Kennedy lahir pada 29 Mei 1917, di Brookline, Massachusetts, Amerika Serikat.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Keluarganya berasal dari keturunan Irlandia-Amerika dan menganut agama Katolik Roma....
+                        </p>
+                    </article>
+                </a>
+
+                <hr class="border-t border-ink/20 my-4" />
+
+                <!-- Article 2 -->
+                <a href="{{ url('jfk_2') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Pendidikan dan awal ketertarikan terhadap politik
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Selama masa kuliah, John menunjukkan ketertarikan terhadap hubungan internasional dan politik dunia.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Pada masa itu, Eropa sedang menghadapi ancaman besar akibat kebangkitan Nazi Jerman di bawah Adolf Hitler....
+                        </p>
+                    </article>
+                </a>
+                
+                <hr class="border-t border-ink/20 my-4" />
+                
+                <!-- Article 3 -->
+                <a href="{{ url('jfk_3') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Pengalaman militer dalam Perang Dunia II (1941–1945)
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Ketika Amerika Serikat memasuki Perang Dunia II pada 1941, John bergabung dengan Angkatan Laut Amerika Serikat atau U.S. Navy.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Ia bertugas di kawasan Samudra Pasifik, tempat Amerika menghadapi Jepang....
+                        </p>
+                    </article>
+                </a>
+                
+                <hr class="border-t border-ink/20 my-4" />
+                
+                <!-- Article 4 -->
+                <a href="{{ url('jfk_4') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Memulai karier politik (1946–1960)
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Setelah keluar dari Angkatan Laut pada 1945, John mulai memasuki dunia politik.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Pada 1946, ia mencalonkan diri sebagai anggota Dewan Perwakilan Rakyat Amerika Serikat atau House of Representatives dari Massachusetts....
+                        </p>
+                    </article>
+                </a>
+                
+            </aside>
+
+            <!-- MIDDLE COLUMN (Featured Image & Quote) -->
+            <section class="md:col-span-6 flex flex-col items-center px-0 md:px-2">
+                <!-- Featured Photo -->
+                <div class="w-full relative overflow-hidden group rounded-sm border border-stone-800/20 mb-6 shadow-sm">
+                    <img 
+                        src="{{ asset('dist/images/history/jfk.jpeg') }}" 
+                        alt="John F. Kennedy" 
+                        class="w-full h-72 sm:h-80 md:h-96 object-cover filter contrast-[1.05] grayscale-[20%] transition-transform duration-700 ease-out group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/600x800/d8d0c5/141414?text=Journaling+by+Window'"
+                    />
+                </div>
+
+                <!-- Featured Quote Card -->
+                <div class="w-full bg-paperDark/50 border border-ink/30 p-6 rounded-sm text-center relative my-auto">
+                    <span class="font-serif text-4xl sm:text-5xl text-ink absolute left-4 top-2 leading-none select-none">“</span>
+                    <blockquote class="font-serif italic text-lg sm:text-2xl text-ink px-4 font-semibold leading-snug">
+                        Together let us explore the stars.
+                    </blockquote>
+                    <span class="font-serif text-4xl sm:text-5xl text-ink absolute right-4 bottom-14 leading-none select-none">”</span>
+                    <a href="https://www.archives.gov/milestone-documents/president-john-f-kennedys-inaugural-address" class="pt-5" style="text-decoration: none">— John F. Kennedy, Inaugural Address, 1961</a>
+                </div>
+
+                <hr class="border-t border-ink/20 my-4" />
+
+                <!-- Article 5 -->
+                <a href="{{ url('jfk_5') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Menjadi Presiden Amerika Serikat (1960–1961)
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Pada 1960, John Kennedy mencalonkan diri sebagai presiden Amerika Serikat dari Partai Demokrat.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Sebagai seorang Katolik Roma, sebagian masyarakat Amerika khawatir bahwa keputusan politiknya akan dipengaruhi oleh Gereja Katolik dan Paus....
+                        </p>
+                    </article>
+                </a>
+
+                <hr class="border-t border-ink/20 my-4" />
+                
+                <!-- Article 6 -->
+                <a href="{{ url('jfk_6') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Masa pemerintahan dan tantangan Perang Dingin (1961–1963)
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Ketika Kennedy menjadi presiden, dunia sedang berada dalam situasi yang disebut Cold War atau Perang Dingin.
+                            1. Amerika Serikat dan sekutu-sekutunya yang dipimpin blok Barat.
+                            2. Uni Soviet dan negara-negara sekutunya yang dipimpin blok Timur....
+                        </p>
+                    </article>
+                </a>
+
+                <hr class="border-t border-ink/20 my-4" />
+                
+                <!-- Article 7 -->
+                <a href="{{ url('jfk_7') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Perjuangan hak-hak sipil di Amerika
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Pada 1960-an, masyarakat Amerika masih menghadapi segregasi rasial, terutama di wilayah Selatan.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Orang kulit hitam sering mengalami diskriminasi dalam pendidikan, transportasi umum, fasilitas publik, dan hak memilih....
+                        </p>
+                    </article>
+                </a>
+            </section>
+
+            <!-- RIGHT COLUMN (Articles) -->
+            <aside class="md:col-span-3 flex flex-col justify-between space-y-6 md:pl-4 md:border-l border-ink/30">
+                <!-- Article 8 -->
+                <a href="{{ url('jfk_8') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Jacqueline Kennedy dan kehidupan keluarga di Gedung Putih
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Selama menjadi presiden, Kennedy tinggal bersama istrinya, Jacqueline, dan anak-anak mereka di Gedung Putih.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Jacqueline Kennedy menjadi salah satu First Lady yang sangat terkenal dalam sejarah Amerika....
+                        </p>
+                    </article>
+                </a>
+
+                <hr class="border-t border-ink/20 my-4" />
+
+                <!-- Article 9 -->
+                <a href="{{ url('jfk_9') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Pembunuhan John F. Kennedy (22 November 1963)
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Pada 22 November 1963, Kennedy melakukan kunjungan politik ke Dallas, Texas.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Tujuannya adalah memperkuat dukungan politik Partai Demokrat menjelang pemilihan presiden 1964....
+                        </p>
+                    </article>
+                </a>
+                
+                <hr class="border-t border-ink/20 my-4" />
+
+                <!-- Article 10 -->
+                <a href="{{ url('jfk_10') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Pemakaman dan warisan sejarah
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Kematian Kennedy menjadi peristiwa yang mengguncang Amerika dan masyarakat dunia.
+                        </p>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Salah satu momen yang paling dikenang adalah ketika putranya, John F. Kennedy Jr., yang masih berusia tiga tahun, memberikan penghormatan kepada iring-iringan jenazah ayahnya....
+                        </p>
+                    </article>
+                </a>
+                
+                <hr class="border-t border-ink/20 my-4" />
+
+                <!-- Article 10 -->
+                <a href="{{ url('jfk_11') }}" style="text-decoration: none">
+                    <article class="space-y-2">
+                        <h3 class="font-sans font-bold text-xs sm:text-sm tracking-wider uppercase text-ink">
+                            Warisan dan pengaruh John F. Kennedy terhadap sejarah Amerika
+                        </h3>
+                        <p class="font-serif text-xs leading-relaxed text-stone-800 text-justify">
+                            Walaupun masa pemerintahannya hanya berlangsung sekitar 1.000 hari, Kennedy meninggalkan pengaruh yang cukup besar.
+                        </p>
+                    </article>
+                </a>
+            </aside>
+        </div>
+
+        <!-- BOTTOM SECTION: 3 SIMPLE PRACTICES -->
+        <section class="mt-8 pt-6 border-t border-ink">
+            <!-- Header with inline lines -->
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <div class="h-[1px] bg-ink flex-1"></div>
+                <h3 class="font-sans font-extrabold text-sm sm:text-base tracking-widest uppercase text-ink">
+                    NEXT TOPIC
+                </h3>
+                <div class="h-[1px] bg-ink flex-1"></div>
+            </div>
+
+            <div class="text-center">
+                <h4 class="font-sans font-bold text-xs tracking-wider text-ink uppercase mb-2 min-h-[28px]">
+                    CHOOSE
+                </h4>
+            </div>
+
+            <!-- Practices Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Practice 1 -->
+                <div class="flex flex-col items-center text-center p-4 border border-ink/15 rounded bg-paperDark/30 hover:border-ink/40 transition-colors">
+                    <div class="w-8 h-8 rounded-full bg-ink text-paper font-sans font-bold text-xs flex items-center justify-center mb-3">
+                        01
+                    </div>
+                    <h4 class="font-sans font-bold text-xs tracking-wider text-ink uppercase mb-3 min-h-[32px] flex items-center">
+                        Mafia Amerika Latin
+                    </h4>
+                    <p class="font-serif text-xs text-stone-700 leading-relaxed mt-2">
+                        Mafia Amerika Latin yang berpusat di Amerika Serikat
+                    </p>
+                </div>
+
+                <!-- Practice 2 -->
+                <div class="flex flex-col items-center text-center p-4 border border-ink/15 rounded bg-paperDark/30 hover:border-ink/40 transition-colors">
+                    <div class="w-8 h-8 rounded-full bg-ink text-paper font-sans font-bold text-xs flex items-center justify-center mb-3">
+                        02
+                    </div>
+                    <h4 class="font-sans font-bold text-xs tracking-wider text-ink uppercase mb-3 min-h-[32px] flex items-center">
+                        Christopher Columbus
+                    </h4>
+                    <p class="font-serif text-xs text-stone-700 leading-relaxed mt-2">
+                        Penjelajah yang Membuka Jalur Luas
+                    </p>
+                </div>
+
+                <!-- Practice 3 -->
+                <div class="flex flex-col items-center text-center p-4 border border-ink/15 rounded bg-paperDark/30 hover:border-ink/40 transition-colors">
+                    <div class="w-8 h-8 rounded-full bg-ink text-paper font-sans font-bold text-xs flex items-center justify-center mb-3">
+                        03
+                    </div>
+                    <h4 class="font-sans font-bold text-xs tracking-wider text-ink uppercase mb-3 min-h-[32px] flex items-center">
+                        Massachusetts
+                    </h4>
+                    <p class="font-serif text-xs text-stone-700 leading-relaxed mt-2">
+                        Sejarah Awal Amerika
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE BOTTOM BOOKMARK BANNER -->
+        <footer class="mt-8 border-t border-ink">
+            <!-- <button 
+                id="bookmarkBtn"
+                onclick="toggleBookmark()"
+                class="w-full py-3 px-4 bg-paperDark border border-ink flex items-center justify-center gap-2 group transition-all duration-300 hover:bg-ink hover:text-paper"
+            >
+                <svg id="bookmarkIcon" class="w-4 h-4 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                </svg>
+                <span id="bookmarkText" class="font-sans font-bold text-xs sm:text-sm tracking-widest uppercase">
+                    SAVE THIS PAGE FOR YOUR NEXT QUIET MOMENT →
+                </span>
+            </button> -->
+
+            <div class="brand-name ms-3">
+                <p class="text-sm tracking-wide text-neutral-600 flex items-center justify-center space-x-2">
+                    <span>Archive by</span> 
+                    <span class="handwriting text-xl font-bold text-blue-800 ml-1">bluetify</span>
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Interactive Bookmark Logic & Notification -->
+    <script>
+        let isSaved = false;
+
+        function toggleBookmark() {
+            isSaved = !isSaved;
+            const btn = document.getElementById('bookmarkBtn');
+            const icon = document.getElementById('bookmarkIcon');
+            const text = document.getElementById('bookmarkText');
+
+            if (isSaved) {
+                icon.setAttribute('fill', 'currentColor');
+                text.textContent = 'PAGE SAVED TO YOUR QUIET COLLECTION ✓';
+                btn.classList.add('bg-ink', 'text-paper');
+                btn.classList.remove('bg-paperDark', 'text-ink');
+            } else {
+                icon.setAttribute('fill', 'none');
+                text.textContent = 'SAVE THIS PAGE FOR YOUR NEXT QUIET MOMENT →';
+                btn.classList.remove('bg-ink', 'text-paper');
+                btn.classList.add('bg-paperDark', 'text-ink');
+            }
+        }
+    </script>
+</body>
+</html>
