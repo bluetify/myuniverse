@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Postcard - Bluetify</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cinzel:wght@600;700&family=Reenie+Beanie&family=Special+Elite&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Fonts */
+        .font-postcard-header {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.15em;
+        }
+
+        .font-handwriting {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+        }
+
+        .font-typewriter {
+            font-family: 'Special Elite', monospace;
+        }
+
+        /* Vintage Paper Texture & Effects */
+        .paper-texture {
+            background-color: #f7ede2;
+            background-image: 
+                radial-gradient(hsla(30, 20%, 20%, 0.05) 1px, transparent 0),
+                linear-gradient(to bottom, rgba(245, 230, 211, 0.95), rgba(235, 218, 196, 0.95));
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.4),
+                inset 0 0 40px rgba(139, 90, 43, 0.15);
+        }
+
+        .polaroid-frame {
+            background: #f4eee0;
+            background-image: linear-gradient(to bottom, #f9f5eb, #ede5d3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.5),
+                inset 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        /* Postmark Circular Stamp Overlay */
+        .postmark-stamp {
+            border: 2px dashed rgba(80, 70, 60, 0.45);
+            border-radius: 50%;
+            transform: rotate(-15deg);
+        }
+
+        /* Stamp Serrated Border Effect */
+        .stamp-border {
+            border: 2px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            background-color: #e5dfd3;
+            outline: 6px dashed #f7ede2;
+            outline-offset: -4px;
+        }
+
+        /* Digital LCD Date Stamp for Polaroid */
+        .digital-date {
+            font-family: 'Courier New', Courier, monospace;
+            color: #0044ff;
+            text-shadow: 0 0 4px rgba(255, 157, 0, 0.8);
+            letter-spacing: 2px;
+        }
+
+        /* Interactive 3D Tilt Container */
+        .tilt-card {
+            transition: transform 0.2s cubic-bezier(0.1, 1, 0.1, 1), box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* Vertical Line Divider with Ink Effect */
+        .postcard-divider {
+            background: linear-gradient(to bottom, transparent, rgba(60, 50, 40, 0.4) 15%, rgba(60, 50, 40, 0.4) 85%, transparent);
+        }
+
+        /* Prevent text selection and editing globally for a read-only presentation */
+        .non-editable {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+    </style>
+</head>
+<body class="min-h-screen relative flex items-center justify-center p-4 sm:p-8 bg-stone-900 overflow-x-hidden selection:bg-transparent non-editable">
+
+    <!-- Scenic Mountain Background with Subtle Parallax/Filter -->
+    <div class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat filter brightness-[0.25] contrast-[1.1] scale-105"
+         style="background-color: #f3ede2;">
+    </div>
+
+    <!-- Vignette & Atmospheric Overlay -->
+    <div class="fixed inset-0 z-0 bg-radial gradient from-transparent via-black/30 to-black/80 pointer-events-none"></div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="relative z-10 w-full max-w-xl mx-auto flex flex-col items-center gap-6 my-6">
+
+        <!-- TOP ELEMENT: VINTAGE POLAROID PHOTO -->
+        <div id="polaroid" class="tilt-card polaroid-frame w-full p-4 sm:p-5 rounded-sm border border-amber-900/10">
+            <!-- Photo Container -->
+            <div class="relative w-full aspect-[4/3] bg-stone-800 rounded-sm overflow-hidden shadow-inner border border-black/20 group">
+                <img src="space2.jpeg" 
+                     alt="Silhouette looking through green window with glass bowls" 
+                     class="w-full h-full object-cover filter contrast-[1.05] brightness-90 transition-transform duration-700 group-hover:scale-105">
+                
+                <!-- Film Grain & Color Overlay for Vintage Mood -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-amber-950/20 via-transparent to-emerald-900/10 pointer-events-none"></div>
+
+                <!-- Digital Date Timestamp Bottom-Right -->
+                <div class="absolute bottom-3 right-4 digital-date text-xs sm:text-sm font-bold opacity-90 select-none">
+                    '26 09月2日
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM ELEMENT: AUTHENTIC VINTAGE POSTCARD -->
+        <div id="postcard" class="tilt-card paper-texture w-full p-6 sm:p-8 rounded-sm border border-amber-950/20 relative overflow-hidden">
+            
+            <!-- Aged Paper Edge Gradients & Creases -->
+            <div class="absolute inset-0 bg-gradient-to-r from-amber-950/5 via-transparent to-amber-950/10 pointer-events-none"></div>
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-b from-amber-950/15 to-transparent pointer-events-none"></div>
+            
+            <!-- POSTCARD HEADER SECTION -->
+            <div class="flex justify-between items-start border-b border-stone-800/15 pb-2 mb-4 text-[9px] sm:text-[10px] tracking-widest text-stone-700 font-semibold uppercase">
+                <!-- <span class="w-1/2 pr-2">THIS SPACE FOR WRITING MESSAGES</span> -->
+                <!-- <span class="w-1/2 pl-4">THIS SPACE FOR ADDRESS ONLY</span> -->
+            </div>
+
+            <!-- MAIN POSTCARD BODY (TWO COLUMNS) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+                
+                <!-- Vertical Divider (Desktop view) -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] postcard-divider -translate-x-1/2"></div>
+
+                <!-- LEFT COLUMN: HANDWRITTEN MESSAGE -->
+                <div class="flex flex-col justify-between pl-0 md:pl-4 relative min-h-[220px]">
+                    
+                    <!-- POST CARD Title & Postmark Circle & Stamp Row -->
+                    <div class="flex justify-between items-start mb-6">
+                        <!-- Main Title & Circular Postmark -->
+                        <div class="relative pt-1">
+                            <h1 class="font-postcard-header text-stone-800 text-2xl sm:text-3xl font-bold tracking-widest leading-none">
+                                POST CARD
+                            </h1>
+                            
+                            <!-- Postmark Stamp Circles (Authentic Rubber Stamp Look) -->
+                            <div class="postmark-stamp absolute -bottom-6 left-6 w-16 h-16 sm:w-20 sm:h-20 flex flex-col items-center justify-center text-[9px] sm:text-[10px] text-stone-700/70 font-mono leading-none pointer-events-none">
+                                <span>NOV 2</span>
+                                <span class="my-0.5">12 - M</span>
+                                <span>2026</span>
+                            </div>
+                        </div>
+
+                        <!-- Vintage Stamp (Snoopy-style Illustration) -->
+                        <div class="stamp-border relative w-16 h-20 sm:w-20 sm:h-24 p-1 flex flex-col justify-between items-center bg-amber-50 shrink-0 transform rotate-2">
+                            <!-- Stamp Price Header -->
+                            <div class="w-full flex justify-between items-center px-1 text-[10px] sm:text-xs font-bold text-stone-700">
+                                <span>82</span>
+                                <svg class="w-2.5 h-2.5 text-stone-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15 9H22L16 14L19 21L12 17L5 21L8 14L2 9H9L12 2Z"/></svg>
+                            </div>
+                            
+                            <!-- Cute Postal Mascot (Snoopy-like inline SVG) -->
+                            <div class="w-full h-full flex items-center justify-center p-1">
+                                <svg viewBox="0 0 100 100" class="w-full h-full text-stone-800">
+                                    <!-- Hat -->
+                                    <path d="M 30 30 Q 50 15 70 30 L 75 35 L 25 35 Z" fill="#4b5563" />
+                                    <rect x="25" y="33" width="50" height="4" fill="#1f2937" />
+                                    <!-- Dog Head -->
+                                    <ellipse cx="50" cy="48" rx="18" ry="14" fill="#ffffff" stroke="#1f2937" stroke-width="3" />
+                                    <!-- Ear -->
+                                    <ellipse cx="36" cy="50" rx="6" ry="12" fill="#1f2937" transform="rotate(15 36 50)" />
+                                    <!-- Eye & Nose -->
+                                    <circle cx="56" cy="45" r="2" fill="#1f2937" />
+                                    <ellipse cx="66" cy="48" rx="3" ry="2.5" fill="#1f2937" />
+                                    <!-- Body & Bag -->
+                                    <path d="M 42 62 L 58 62 L 62 85 L 38 85 Z" fill="#ffffff" stroke="#1f2937" stroke-width="3" />
+                                    <rect x="40" y="68" width="22" height="15" rx="3" fill="#92400e" stroke="#1f2937" stroke-width="2" />
+                                    <path d="M 32 60 Q 45 70 65 65" fill="none" stroke="#92400e" stroke-width="2" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ADDRESS SECTION -->
+                    <div class="mt-4 sm:mt-8 space-y-3 font-handwriting text-2xl sm:text-3xl text-stone-800/90 leading-tight pointer-events-none">
+                        <div class="border-b border-stone-700/20 pb-1">
+                            <p id="readonly-address-1">to my fav author</p>
+                        </div>
+                        <div class="border-b border-stone-700/20 pb-1">
+                            <p id="readonly-address-2">2026 street, somewhere in</p>
+                        </div>
+                        <div class="border-b border-stone-700/20 pb-1">
+                            <p id="readonly-address-3">space</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+
+
+                <!-- RIGHT COLUMN: POSTAGE STAMP & ADDRESS -->
+                <div class="flex flex-col justify-between pr-0 md:pr-4 text-stone-800 leading-snug">
+                    <p id="readonly-message" class="font-handwriting text-xl sm:text-2xl opacity-90 pointer-events-none">
+                        close your eyes, give me your hand, darling<br>
+                        do you feel my heart beating?<br>
+                        do you understand? Do you feel the same?<br>
+                        am I only dreaming?<br>
+                        is this burning an eternal flame?<br>
+                    </p>
+                    <p>Eternal Flame by The Bangles</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Interactive Hint / Sound Toggle -->
+        <!-- <div class="text-amber-100/60 text-xs font-mono tracking-widest uppercase flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 select-none">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Hover to Tilt • Read Only</span>
+        </div> -->
+
+    </main>
+
+    <!-- 3D Interactive Tilt Effect Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tiltCards = document.querySelectorAll('.tilt-card');
+
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = ((y - centerY) / centerY) * -8;
+                    const rotateY = ((x - centerX) / centerX) * 8;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
