@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Sunset in Bourgogne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=IM+Fell+English:ital@0;1&family=Monsieur+La+Doulaise&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0a08;
+            --paper-color: #e3cc9c;
+            --paper-dark: #bfa16c;
+            --seal-red: #8b1212;
+            --seal-dark: #4a0606;
+            --ink-color: #2b1d0c;
+            --card-bg: #edd6b1;
+            --gold-accent: #c59b27;
+            --gold-border: #8c6d1d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(30, 20, 15, 0.8), rgba(5, 5, 5, 0.98)),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+            color: var(--ink-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            font-family: 'IM Fell English', serif;
+            overflow-x: hidden;
+        }
+
+        h1.main-title {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* --------------------------------------------------
+           SECTION 1: CAST CARDS GRID (ROLE POSISI DI ATAS)
+        -------------------------------------------------- */
+        .cast-section {
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 5rem;
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .cast-card {
+            background-color: var(--card-bg);
+            background-image: 
+                radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, rgba(200,165,110,0.5) 100%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+            border: 3px solid var(--gold-border);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.8),
+                inset 0 0 15px rgba(100, 60, 20, 0.3);
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 18px 35px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .card-inner-frame {
+            border: 1px solid var(--gold-accent);
+            border-radius: 4px;
+            padding: 8px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .card-inner-frame::before {
+            content: '♦';
+            position: absolute;
+            top: -9px;
+            color: var(--gold-accent);
+            background: var(--card-bg);
+            padding: 0 4px;
+            font-size: 0.75rem;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 280px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid var(--gold-border);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.5s ease;
+        }
+
+        .cast-card:hover .image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-info {
+            text-align: center;
+            margin-top: auto;
+            width: 100%;
+            padding: 0.4rem 0;
+        }
+
+        .role-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #8b1212;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            border-bottom: 1px dashed rgba(139, 18, 18, 0.3);
+            padding-bottom: 0.2rem;
+        }
+
+        .actor-name {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #1a1005;
+        }
+
+        .as-text {
+            font-style: italic;
+            font-size: 0.8rem;
+            color: #5c4524;
+            margin: 0.1rem 0;
+        }
+
+        .character-name {
+            font-family: 'IM Fell English', serif;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2b1d0c;
+        }
+
+        /* --------------------------------------------------
+           SECTION 2: ENVELOPE & LETTER INTERACTIVE SECTION
+        -------------------------------------------------- */
+        .envelope-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .instructions {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .scene {
+            position: relative;
+            width: 520px;
+            height: 360px;
+            perspective: 1000px;
+            margin-top: 140px;
+        }
+
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--paper-color);
+            background-image: 
+                radial-gradient(ellipse at center, rgba(255,255,255,0.2) 0%, rgba(180,140,80,0.4) 80%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(80, 50, 20, 0.3);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.6s ease;
+        }
+
+        .flap-left {
+            position: absolute;
+            top: 0; left: 0;
+            width: 0; height: 0;
+            border-top: 180px solid transparent;
+            border-bottom: 180px solid transparent;
+            border-left: 270px solid var(--paper-dark);
+            filter: drop-shadow(2px 0 3px rgba(0,0,0,0.2));
+            z-index: 3;
+            opacity: 0.9;
+        }
+
+        .flap-right {
+            position: absolute;
+            top: 0; right: 0;
+            width: 0; height: 0;
+            border-top: 180px solid transparent;
+            border-bottom: 180px solid transparent;
+            border-right: 270px solid var(--paper-dark);
+            filter: drop-shadow(-2px 0 3px rgba(0,0,0,0.2));
+            z-index: 3;
+            opacity: 0.9;
+        }
+
+        .flap-bottom {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 0;
+            border-left: 260px solid transparent;
+            border-right: 260px solid transparent;
+            border-bottom: 190px solid #cbb07a;
+            filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.25));
+            z-index: 4;
+        }
+
+        .flap-top {
+            position: absolute;
+            top: 0; left: 0;
+            width: 0; height: 0;
+            border-left: 260px solid transparent;
+            border-right: 260px solid transparent;
+            border-top: 200px solid #d8bd88;
+            transform-origin: top center;
+            transition: transform 0.8s ease 0.4s, z-index 0.2s ease 0.4s;
+            z-index: 5;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+        }
+
+        .wax-seal {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -30%) rotate(-4deg);
+            width: 90px; height: 90px;
+            background: radial-gradient(circle at 35% 35%, #ad1c1c 0%, var(--seal-red) 55%, var(--seal-dark) 100%);
+            border-radius: 48% 52% 45% 55% / 52% 46% 54% 48%;
+            box-shadow: 
+                3px 6px 15px rgba(0,0,0,0.7),
+                inset -3px -3px 8px rgba(0,0,0,0.8),
+                inset 3px 3px 8px rgba(255,255,255,0.35);
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .wax-seal::after {
+            content: '';
+            position: absolute;
+            width: 68px; height: 68px;
+            border: 2px dashed rgba(255, 215, 0, 0.4);
+            border-radius: 50%;
+        }
+
+        .seal-emblem {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            font-size: 0.55rem;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .letter {
+            position: absolute;
+            top: 15px; left: 25px;
+            width: 470px;
+            background-color: #f3e5c8;
+            background-image: 
+                radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(210,175,120,0.3) 100%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+            padding: 2.5rem 2rem 2rem 2rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            border-radius: 2px;
+            z-index: 2;
+            transition: transform 0.8s ease 0.8s, opacity 0.5s ease;
+            max-height: 320px;
+            overflow: hidden;
+        }
+
+        .scene.open .wax-seal {
+            opacity: 0;
+            transform: translate(-50%, -30%) scale(1.3) rotate(10deg);
+            pointer-events: none;
+        }
+
+        .scene.open .flap-top {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .scene.open .letter {
+            transform: translateY(-360px) scale(0.85);
+            z-index: 10;
+            max-height: none;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            overflow: visible;
+        }
+
+        .lang-switch {
+            display: none;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed rgba(43, 29, 12, 0.3);
+            padding-bottom: 0.8rem;
+        }
+
+        .scene.open .lang-switch {
+            display: flex;
+        }
+
+        .lang-btn {
+            background: #2a221b;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 0.35rem 0.85rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            background: #d4af37;
+            color: #1a120b;
+        }
+
+        .letter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--ink-color);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+
+        .letter-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.2rem;
+            text-transform: uppercase;
+        }
+
+        .letter-subtitle {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .letter-body {
+            font-family: 'Monsieur La Doulaise', cursive;
+            font-size: 1.6rem;
+            line-height: 1.35;
+            text-align: justify;
+            color: #1a1005;
+        }
+
+        .letter-body p {
+            margin-bottom: 0.8rem;
+            text-indent: 1.2rem;
+        }
+
+        .letter-footer {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .sig-box {
+            text-align: right;
+        }
+
+        .sig-handwritten {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.3rem;
+            transform: rotate(-4deg);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">Kekaisaran Versailles</h1>
+
+    <!-- 1. SECTION ROLES / CAST CARDS ATAS -->
+    <div class="cast-section">
+        <div class="cast-grid">
+
+            <!-- Card: Carmen (Pejabat Istana) -->
+            <div class="cast-card">
+                <div class="card-inner-frame">
+                    <div class="role-title">Anak Kedua Ratu</div>
+                    <div class="image-wrapper">
+                        <img src="carmen.jpeg" alt="Carmen">
+                    </div>
+                    <div class="card-info">
+                        <div class="actor-name">Carmen</div>
+                        <div class="as-text">sebagai</div>
+                        <div class="character-name">Charlotte Guillemette</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Jiwoo (Gubernur Bourgogne) -->
+            <div class="cast-card">
+                <div class="card-inner-frame">
+                    <div class="role-title">Gubernur Bourgogne</div>
+                    <div class="image-wrapper">
+                        <img src="jiwoo.jpeg" alt="Jiwoo">
+                    </div>
+                    <div class="card-info">
+                        <div class="actor-name">Jiwoo</div>
+                        <div class="as-text">sebagai</div>
+                        <div class="character-name">Jeanne Victoire</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Wendy (Kaisar) -->
+            <div class="cast-card">
+                <div class="card-inner-frame">
+                    <div class="role-title">Ratu</div>
+                    <div class="image-wrapper">
+                        <img src="wendy.jpeg" alt="Wendy">
+                    </div>
+                    <div class="card-info">
+                        <div class="actor-name">Wendy</div>
+                        <div class="as-text">sebagai</div>
+                        <div class="character-name">Éléonore Wilhelmine</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Liz (Utusan Khusus) -->
+            <div class="cast-card">
+                <div class="card-inner-frame">
+                    <div class="role-title">Anak Pertama Ratu</div>
+                    <div class="image-wrapper">
+                        <img src="liz.jpeg" alt="Liz">
+                    </div>
+                    <div class="card-info">
+                        <div class="actor-name">Liz</div>
+                        <div class="as-text">sebagai</div>
+                        <div class="character-name">Helga Elisabeth</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border: 20px solid #ad1c1c;">
+    <hr style="border: 20px solid #ad1c1c;">
+    <hr style="border: 20px solid #ad1c1c;">
+
+    <!-- 2. SECTION ENVELOPE / DEKRET BAWAH -->
+    <div class="envelope-section">
+        <div class="instructions" id="instructionText">Klik segel lilin untuk membuka surat dekrit</div>
+
+        <div class="scene" id="scene">
+            <div class="envelope" onclick="toggleEnvelope(event)">
+                <div class="flap-left"></div>
+                <div class="flap-right"></div>
+                <div class="flap-bottom"></div>
+                <div class="flap-top"></div>
+
+                <div class="wax-seal">
+                    <div class="seal-emblem">
+                        Sceau<br>Impérial<br>★
+                    </div>
+                </div>
+
+                <div class="letter" id="letter">
+                    <div class="lang-switch" onclick="event.stopPropagation();">
+                        <button class="lang-btn active" id="btnFR" onclick="switchLang('fr')">Français (Asli)</button>
+                        <button class="lang-btn" id="btnID" onclick="switchLang('id')">Bahasa Indonesia</button>
+                    </div>
+
+                    <!-- Konten Bahasa Prancis -->
+                    <div id="contentFR">
+                        <div class="letter-header">
+                            <div>Égalité • Liberté<br><span style="font-size: 0.65rem; letter-spacing: 1px;">L'Empire de Versailles</span></div>
+                            <div>Paris, 12 Mai 1807</div>
+                        </div>
+
+                        <div class="letter-title">Au Nom de l'Empereur des Versailles</div>
+                        <div class="letter-subtitle">Éléonore Ier</div>
+
+                        <div class="letter-body">
+                            <p style="text-indent: 0; text-align: center; font-style: italic; font-size: 1.15rem;">
+                                par la grâce de Dieu et les Constitutions de la République, Empereur des Versailles,
+                            </p>
+                            <p>
+                                Sur le rapport de notre Ministre de l'Intérieur, et considérant la nécessité d'assurer une administration ferme et loyale dans la Province de Bourgogne ;
+                            </p>
+                            <p style="text-align: center; font-weight: bold; text-indent: 0;">Décrétons ce qui suit :</p>
+                            <p>
+                                <strong>Article 1er.</strong> Mademoiselle <strong>Jeanne Victoire de Montmorency</strong> est nommé <strong>Gouverneur Général de la Province de Bourgogne</strong>.
+                            </p>
+                            <p>
+                                <strong>Article 2.</strong> Le nouveau Gouverneur est investi de tous les pouvoirs civils et militaires nécessaires pour maintenir l'ordre public et veiller à l'exécution de nos lois.
+                            </p>
+                        </div>
+
+                        <div class="letter-footer">
+                            <div style="font-family: 'Cinzel', serif; font-size: 0.6rem; color: #8b1212; font-weight: bold;">
+                                [ Grand Sceau de l'État ]<br>
+                                (Close)
+                            </div>
+                            <div class="sig-box">
+                                <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: bold;">Par l'Empereur :</div>
+                                <div class="sig-handwritten">Éléonore</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Konten Bahasa Indonesia -->
+                    <div id="contentID" style="display: none;">
+                        <div class="letter-header">
+                            <div>Persamaan • Kebebasan<br><span style="font-size: 0.65rem; letter-spacing: 1px;">Kekaisaran Versailles</span></div>
+                            <div>Paris, 12 Mei 1807</div>
+                        </div>
+
+                        <div class="letter-title">Atas Nama Kaisar Rakyat Versailles</div>
+                        <div class="letter-subtitle">Ratu Éléonore</div>
+
+                        <div class="letter-body">
+                            <p style="text-indent: 0; text-align: center; font-style: italic; font-size: 1.15rem;">
+                                atas rahmat Tuhan dan Konstitusi Republik, Kaisar Rakyat Versailles,
+                            </p>
+                            <p>
+                                Berdasarkan laporan dari Menteri Dalam Negeri Kami, dan mengingat pentingnya menjamin pemerintahan yang tegas dan setia di Provinsi Bourgogne;
+                            </p>
+                            <p style="text-align: center; font-weight: bold; text-indent: 0;">Menetapkan keputusan berikut :</p>
+                            <p>
+                                <strong>Pasal 1.</strong> Nona <strong>Jeanne Victoire de Montmorency</strong> dengan ini diangkat sebagai <strong>Gubernur Jenderal Provinsi Bourgogne</strong>.
+                            </p>
+                            <p>
+                                <strong>Pasal 2.</strong> Gubernur yang baru diberikan wewenang penuh atas urusan sipil dan militer yang diperlukan untuk menjaga ketertiban umum dan pelaksanaan undang-undang Kami.
+                            </p>
+                        </div>
+
+                        <div class="letter-footer">
+                            <div style="font-family: 'Cinzel', serif; font-size: 0.6rem; color: #8b1212; font-weight: bold;">
+                                [ Cap Kehormatan Negara ]<br>
+                                (Tutup Surat)
+                            </div>
+                            <div class="sig-box">
+                                <div style="font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: bold;">Atas Nama Kaisar :</div>
+                                <div class="sig-handwritten">Ratu Éléonore</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleEnvelope(e) {
+            if (e.target.tagName === 'BUTTON') return;
+
+            const scene = document.getElementById('scene');
+            const text = document.getElementById('instructionText');
+            
+            scene.classList.toggle('open');
+            if (scene.classList.contains('open')) {
+                text.innerText = "Pilih bahasa di atas surat, atau klik amplop untuk menutup";
+            } else {
+                text.innerText = "Klik segel lilin untuk membuka surat dekrit";
+            }
+        }
+
+        function switchLang(lang) {
+            const frContent = document.getElementById('contentFR');
+            const idContent = document.getElementById('contentID');
+            const btnFR = document.getElementById('btnFR');
+            const btnID = document.getElementById('btnID');
+
+            if (lang === 'fr') {
+                frContent.style.display = 'block';
+                idContent.style.display = 'none';
+                btnFR.classList.add('active');
+                btnID.classList.remove('active');
+            } else {
+                frContent.style.display = 'none';
+                idContent.style.display = 'block';
+                btnID.classList.add('active');
+                btnFR.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
